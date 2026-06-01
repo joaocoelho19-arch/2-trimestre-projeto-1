@@ -1,52 +1,174 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroInnovación | El Futuro del Campo</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>AgroTech Solutions | O Futuro do Campo</title>
+    <style>
+        /* --- CONFIGURAÇÕES GERAIS E VARIÁVEIS --- */
+        :root {
+            --primary: #2ec4b6;
+            --secondary: #20bf55;
+            --dark: #0b132b;
+            --light: #f8f9fa;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-    <header>
-        <div class="logo">Agro<span>Tech</span></div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#innovaciones">Innovaciones</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>La Revolución Digital en la Agricultura</h1>
-            <p>Descubre cómo la tecnología, la inteligencia artificial y los drones están transformando el campo hoy.</p>
-            <button id="btn-descubrir">Ver Innovaciones</button>
-        </div>
-    </section>
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-    <section id="innovaciones" class="features">
-        <h2>Tecnologías que cambian el juego</h2>
-        <div class="grid-cards">
-            <div class="card">
-                <h3>Drones e IA</h3>
-                <p>Monitoreo de cultivos en tiempo real para detectar plagas y optimizar el riego sin desperdiciar recursos.</p>
-            </div>
-            <div class="card">
-                <h3>Sensores IoT</h3>
-                <p>Dispositivos en el suelo que miden la humedad, temperatura y nutrientes de forma automática.</p>
-            </div>
-            <div class="card">
-                <h3>Tractores Autónomos</h3>
-                <p>Maquinaria guiada por GPS capaz de sembrar y cosechar las 24 horas del día con precisión milimétrica.</p>
-            </div>
-        </div>
-    </section>
+        /* --- NAVEGAÇÃO --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 19, 43, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
 
-    <footer id="contacto">
-        <p>&copy; 2026 AgroTech. Diseñado con pasión por un futuro sostenible.</p>
-    </footer>
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    <script src="script.js"></script>
-</body>
-</html>
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--secondary);
+        }
+
+        /* --- ESTRUTURA DE PÁGINAS --- */
+        .page {
+            display: none;
+            padding: 120px 8% 60px 8%;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- TITULOS --- */
+        .title-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .title-section h1 {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .title-section p {
+            color: #8da9c4;
+            margin-top: 10px;
+        }
+
+        /* --- HOME PAGE --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            height: calc(100vh - 180px);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text span {
+            color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(32, 191, 85, 0.3);
+        }
+
+        /* Dashboard Interativo na Home */
+        .mock-dashboard {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .widget-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .widget {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .widget h4 { color: #8da9c4; font-size: 0.9rem;}
+        .widget p { font-size: 1.8rem; font-weight: bold; margin-top: 5px; color: #fff;}
+
+        /* --- SOLUÇÕES (CARDS INTERATIVOS) --- */
+        .solutions-grid {
+            display: grid;
+            grid-template-
