@@ -1,0 +1,216 @@
+/* --- RESET E VARIÁVEIS --- */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: 'Segoe UI', Arial, sans-serif; 
+}
+
+:root {
+  --primary: #2e8b57;
+  --primary-light: #3cb371;
+  --accent: #ffe066;
+  --background: #f0f7f5;
+  --dark: #333;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body { 
+  background: var(--background); 
+  color: var(--dark); 
+  scroll-behavior: smooth;
+}
+
+a { 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+/* --- HEADER --- */
+header {
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+header h1 { 
+  font-size: 1.8rem; 
+}
+
+nav a { 
+  margin-left: 20px; 
+  font-weight: bold; 
+  transition: color 0.3s; 
+}
+
+nav a:hover { 
+  color: var(--accent); 
+}
+
+/* --- HERO --- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+  background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 { 
+  font-size: 3rem; 
+  margin-bottom: 20px; 
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+}
+
+.hero button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.hero button:hover { 
+  transform: scale(1.05); 
+  background-color: #ffd433;
+}
+
+/* --- SEÇÃO DE TECNOLOGIAS --- */
+.technologies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card img { 
+  width: 80px; 
+  margin-bottom: 15px; 
+}
+
+.card h3 { 
+  margin-bottom: 10px; 
+  color: var(--primary); 
+}
+
+.card p { 
+  font-size: 0.95rem; 
+  color: #666; 
+  line-height: 1.4; 
+}
+
+/* --- MODAL INTERATIVO --- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-content h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.close-btn:hover { 
+  background: var(--primary-light); 
+}
+
+/* --- FOOTER --- */
+footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
