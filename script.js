@@ -1,29 +1,29 @@
-// Scroll suave
+// Scroll suave botão
 document.getElementById("explore-btn").addEventListener("click", () => {
   document.getElementById("technologies").scrollIntoView({ behavior: "smooth" });
 });
 
-// Dados
+// Dados das tecnologias
 const techDetails = {
   drones: {
     title: "Drones Agrícolas",
-    desc: "Drones monitoram lavouras e aplicam insumos com precisão."
+    desc: "Monitoramento de lavouras com precisão."
   },
   iot: {
     title: "IoT e Sensores",
-    desc: "Sensores coletam dados do solo em tempo real."
+    desc: "Coleta de dados do solo em tempo real."
   },
   ia: {
     title: "Inteligência Artificial",
-    desc: "IA prevê safras e melhora decisões agrícolas."
+    desc: "IA prevê safras e melhora decisões."
   },
   hidroponia: {
     title: "Hidroponia",
-    desc: "Cultivo sem solo, mais eficiente e sustentável."
+    desc: "Cultivo sem solo e mais eficiente."
   }
 };
 
-// Modal tecnologias
+// MODAL TECNOLOGIAS
 const modal = document.getElementById("tech-modal");
 const title = document.getElementById("modal-title");
 const desc = document.getElementById("modal-description");
@@ -39,7 +39,6 @@ document.querySelectorAll(".card").forEach(card => {
   });
 });
 
-// Fechar modal
 document.getElementById("close-modal").addEventListener("click", () => {
   modal.classList.remove("active");
 });
@@ -50,28 +49,20 @@ modal.addEventListener("click", (e) => {
   }
 });
 
-// CONTATO MODAL
-const contactModal = document.createElement("div");
-contactModal.classList.add("modal");
-
-contactModal.innerHTML = `
-  <div class="modal-content">
-    <h3>Contato</h3>
-    <p>Email: contato@agrofuturo.com</p>
-    <p>WhatsApp: +55 (41) 99999-9999</p>
-    <button id="close-contact" class="close-btn">Fechar</button>
-  </div>
-`;
-
-document.body.appendChild(contactModal);
+// MODAL CONTATO
+const contactModal = document.getElementById("contact-modal");
 
 document.getElementById("btn-contact").addEventListener("click", (e) => {
   e.preventDefault();
   contactModal.classList.add("active");
 });
 
+document.getElementById("close-contact").addEventListener("click", () => {
+  contactModal.classList.remove("active");
+});
+
 contactModal.addEventListener("click", (e) => {
-  if (e.target === contactModal || e.target.id === "close-contact") {
+  if (e.target === contactModal) {
     contactModal.classList.remove("active");
   }
 });
