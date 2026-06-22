@@ -8,14 +8,16 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
     <h1>AgroFuturo</h1>
     <nav>
       <a href="#technologies">Tecnologias</a>
-      <a href="#contact">Contato</a>
+      <a href="#" id="btn-contact">Contato</a>
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h2>O Futuro da Agricultura Está Aqui</h2>
@@ -23,44 +25,47 @@
     </div>
   </section>
 
+  <!-- TECNOLOGIAS -->
   <main class="technologies" id="technologies">
-    
+
     <div class="card" data-tech="drones">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910763.png" alt="Drones">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910763.png">
       <h3>Drones Agrícolas</h3>
-      <p>Monitoramento de plantações e aplicação precisa de insumos com drones inteligentes.</p>
+      <p>Monitoramento inteligente de lavouras.</p>
     </div>
 
     <div class="card" data-tech="iot">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910769.png" alt="IoT">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910769.png">
       <h3>IoT e Sensores</h3>
-      <p>Coleta de dados em tempo real sobre solo, clima e irrigação para decisões mais inteligentes.</p>
+      <p>Dados do solo em tempo real.</p>
     </div>
 
     <div class="card" data-tech="ia">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910765.png" alt="IA">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910765.png">
       <h3>Inteligência Artificial</h3>
-      <p>Previsão de safras e otimização da produção usando algoritmos avançados.</p>
+      <p>Previsão de safra com IA.</p>
     </div>
 
     <div class="card" data-tech="hidroponia">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910770.png" alt="Hidroponia">
-      <h3>Hidroponia e Vertical Farming</h3>
-      <p>Cultivo eficiente em espaços reduzidos, com economia de água e recursos.</p>
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910770.png">
+      <h3>Hidroponia</h3>
+      <p>Cultivo sem solo e mais eficiente.</p>
     </div>
 
   </main>
 
+  <!-- MODAL TECNOLOGIAS -->
   <div class="modal" id="tech-modal">
     <div class="modal-content">
-      <h3 id="modal-title">Título da Tecnologia</h3>
-      <p id="modal-description">Descrição detalhada aqui.</p>
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
       <button class="close-btn" id="close-modal">Fechar</button>
     </div>
   </div>
 
-  <footer id="contact">
-    <p>© 2026 AgroFuturo - Inovação Agrícola. Todos os direitos reservados.</p>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 AgroFuturo - Todos os direitos reservados</p>
   </footer>
 
   <script src="script.js"></script>
