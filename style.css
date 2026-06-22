@@ -16,19 +16,37 @@ body {
 
 /* HEADER */
 header {
-  background: rgba(46, 139, 87, 0.9);
+  background: rgba(46, 139, 87, 0.95);
   color: white;
   display: flex;
   justify-content: space-between;
   padding: 20px;
   position: sticky;
   top: 0;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-nav a {
+.nav-link {
   margin-left: 20px;
   color: white;
   text-decoration: none;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ffe066;
+  transition: 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 /* HERO */
@@ -47,12 +65,16 @@ nav a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
+}
+
+.hero h2 {
+  font-size: 3rem;
 }
 
 .hero button {
@@ -61,12 +83,19 @@ nav a {
   background: #ffe066;
   border: none;
   cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  transform: scale(1.05);
 }
 
 /* CARDS */
 .technologies {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   padding: 60px;
 }
@@ -77,11 +106,12 @@ nav a {
   border-radius: 15px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* MODAL */
@@ -89,20 +119,39 @@ nav a {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
 }
 
 .modal.active {
-  display: flex;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .modal-content {
   background: white;
   padding: 30px;
   border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
   text-align: center;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .close-btn {
@@ -112,6 +161,7 @@ nav a {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 /* FOOTER */

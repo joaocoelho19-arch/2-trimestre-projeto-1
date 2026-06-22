@@ -1,13 +1,14 @@
-// Scroll suave botão
+// SCROLL SUAVE BOTÃO
 document.getElementById("explore-btn").addEventListener("click", () => {
-  document.getElementById("technologies").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("technologies")
+    .scrollIntoView({ behavior: "smooth" });
 });
 
-// Dados das tecnologias
+// DADOS TECNOLOGIAS
 const techDetails = {
   drones: {
     title: "Drones Agrícolas",
-    desc: "Monitoramento de lavouras com precisão."
+    desc: "Monitoramento inteligente das lavouras com precisão."
   },
   iot: {
     title: "IoT e Sensores",
@@ -15,16 +16,16 @@ const techDetails = {
   },
   ia: {
     title: "Inteligência Artificial",
-    desc: "IA prevê safras e melhora decisões."
+    desc: "IA ajuda a prever safras e melhorar decisões."
   },
   hidroponia: {
     title: "Hidroponia",
-    desc: "Cultivo sem solo e mais eficiente."
+    desc: "Cultivo sem solo, mais eficiente e sustentável."
   }
 };
 
 // MODAL TECNOLOGIAS
-const modal = document.getElementById("tech-modal");
+const techModal = document.getElementById("tech-modal");
 const title = document.getElementById("modal-title");
 const desc = document.getElementById("modal-description");
 
@@ -35,17 +36,17 @@ document.querySelectorAll(".card").forEach(card => {
     title.textContent = data.title;
     desc.textContent = data.desc;
 
-    modal.classList.add("active");
+    techModal.classList.add("active");
   });
 });
 
 document.getElementById("close-modal").addEventListener("click", () => {
-  modal.classList.remove("active");
+  techModal.classList.remove("active");
 });
 
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("active");
+techModal.addEventListener("click", (e) => {
+  if (e.target === techModal) {
+    techModal.classList.remove("active");
   }
 });
 
